@@ -12,3 +12,14 @@ botao.addEventListener('click', (event) => {
     window.alert('Email ou senha inválidos.');
   }
 });
+const btnSubmit = document.getElementById('submit-btn');
+const agreement = document.getElementById('agreement');
+btnSubmit.disabled = true;
+
+agreement.addEventListener('change', () => {
+  if (agreement.checked) {
+    btnSubmit.disabled = false;
+  } else {
+    btnSubmit.disabled = true;
+  }
+});
