@@ -1,26 +1,26 @@
-const emailValido = 'tryber@teste.com';
-const senhaValida = '123456';
-const botao = document.getElementById('button');
+const emailValido = "tryber@teste.com";
+const senhaValida = "123456";
+const botao = document.getElementById("button");
 
-botao.addEventListener('click', (event) => {
+botao.addEventListener("click", (event) => {
   event.preventDefault();
-  const email = document.querySelector('#email').value;
-  const senha = document.querySelector('#senha').value;
+  const email = document.querySelector("#email").value;
+  const senha = document.querySelector("#senha").value;
   if (email === emailValido && senha === senhaValida) {
-    window.alert('Olá, Tryber!');
+    window.alert("Olá, Tryber!");
   } else {
-    window.alert('Email ou senha inválidos.');
+    window.alert("Email ou senha inválidos.");
   }
 });
 
-const btnSubmit = document.getElementById('submit-btn');
-const agreement = document.getElementById('agreement');
+const btnSubmit = document.getElementById("submit-btn");
+const agreement = document.getElementById("agreement");
 btnSubmit.disabled = true;
 
-agreement.addEventListener('change', () => {
+agreement.addEventListener("change", () => {
   if (agreement.checked) {
-    btnSubmit.disabled = false;  
+    btnSubmit.disabled = false;
   } else {
     btnSubmit.disabled = true;
-  }  
+  }
 });
