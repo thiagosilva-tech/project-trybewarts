@@ -1,23 +1,23 @@
-const emailValido = "tryber@teste.com";
-const senhaValida = "123456";
-const botao = document.getElementById("button");
+const emailValido = 'tryber@teste.com';
+const senhaValida = '123456';
+const botao = document.getElementById('button');
 
-botao.addEventListener("click", (event) => {
+botao.addEventListener('click', (event) => {
   event.preventDefault();
-  const email = document.querySelector("#email").value;
-  const senha = document.querySelector("#senha").value;
+  const email = document.querySelector('#email').value;
+  const senha = document.querySelector('#senha').value;
   if (email === emailValido && senha === senhaValida) {
-    window.alert("Olá, Tryber!");
+    window.alert('Olá, Tryber!');
   } else {
-    window.alert("Email ou senha inválidos.");
+    window.alert('Email ou senha inválidos.');
   }
 });
 
-const btnSubmit = document.getElementById("submit-btn");
-const agreement = document.getElementById("agreement");
+const btnSubmit = document.getElementById('submit-btn');
+const agreement = document.getElementById('agreement');
 btnSubmit.disabled = true;
 
-agreement.addEventListener("change", () => {
+agreement.addEventListener('change', () => {
   if (agreement.checked) {
     btnSubmit.disabled = false;
   } else {
@@ -25,10 +25,10 @@ agreement.addEventListener("change", () => {
   }
 });
 
-const textarea = document.getElementById("textarea");
-const counter = document.getElementById("counter");
+const textarea = document.getElementById('textarea');
+const counter = document.getElementById('counter');
 
-textarea.addEventListener("keyup", (event) => {
+textarea.addEventListener('keyup', (event) => {
   const textLenf = event.target.value.length;
   let contador = 500;
   contador -= textLenf;
@@ -36,31 +36,31 @@ textarea.addEventListener("keyup", (event) => {
 });
 
 function getFullName() {
-  const nome = document.getElementById("input-name").value;
-  const sobrenome = document.getElementById("input-lastname").value;
+  const nome = document.getElementById('input-name').value;
+  const sobrenome = document.getElementById('input-lastname').value;
   return `${nome} ${sobrenome}`;
 }
 
 function getContent() {
-  const subjects = document.querySelectorAll(".subject");
+  const subjects = document.querySelectorAll('.subject');
   const contents = [];
   for (let index = 0; index < subjects.length; index += 1) {
     if (subjects[index].checked) {
       contents.push(subjects[index].value);
     }
   }
-  const content = contents.join(", ");
+  const content = contents.join(', ');
   return content;
 }
 
 function getInfos() {
   const fullName = getFullName();
-  const mail = document.getElementById("input-email").value;
-  const house = document.getElementById("house").value;
+  const mail = document.getElementById('input-email').value;
+  const house = document.getElementById('house').value;
   const family = document.querySelector('input[name="family"]:checked').value;
   const content = getContent();
   const rate = document.querySelector('input[name="rate"]:checked').value;
-  const text = document.getElementById("textarea").value;
+  const text = document.getElementById('textarea').value;
   const formData = {
     Nome: fullName,
     Email: mail,
@@ -71,21 +71,6 @@ function getInfos() {
     Observações: text,
   };
   return formData;
-}
-
-function changeForm() {
-  const evaluationForm = document.querySelector('#evaluation-form');
-  evaluationForm.style.display = 'none';
-  getInfosData()
-  const formData = document.querySelector('#form-data');
-  formData.style.display = 'block';
-}
-
-function saveInfosData(event) {
-  event.preventDefault();
-  const formData = getInfos();
-  localStorage.setItem("form-data", JSON.stringify(formData));
-  changeForm();
 }
 
 function getInfosData() {
@@ -106,4 +91,19 @@ function getInfosData() {
   observacao.innerText = dataLocalstorage.Observações;
 }
 
-btnSubmit.addEventListener("click", saveInfosData);
+function changeForm() {
+  const evaluationForm = document.querySelector('#evaluation-form');
+  evaluationForm.style.display = 'none';
+  getInfosData();
+  const formData = document.querySelector('#form-data');
+  formData.style.display = 'block';
+}
+
+function saveInfosData(event) {
+  event.preventDefault();
+  const formData = getInfos();
+  localStorage.setItem('form-data', JSON.stringify(formData));
+  changeForm();
+}
+
+btnSubmit.addEventListener('click', saveInfosData);
