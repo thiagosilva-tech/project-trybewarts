@@ -35,3 +35,11 @@ main {
   display: flex;
   flex-direction: column;
 }
+
+#textarea {
+  resize: none;
+}
+
+#form-data {
+  display: none;
+}
