@@ -39,3 +39,7 @@ main {
 #textarea {
   resize: none;
 }
+
+#form-data {
+  display: none;
+}
