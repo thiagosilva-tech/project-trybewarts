@@ -12,6 +12,7 @@ botao.addEventListener('click', (event) => {
     window.alert('Email ou senha inválidos.');
   }
 });
+
 const btnSubmit = document.getElementById('submit-btn');
 const agreement = document.getElementById('agreement');
 btnSubmit.disabled = true;
@@ -22,4 +23,14 @@ agreement.addEventListener('change', () => {
   } else {
     btnSubmit.disabled = true;
   }
+});
+
+const textarea = document.getElementById('textarea');
+const counter = document.getElementById('counter');
+
+textarea.addEventListener('keyup', (event) => {
+  const textLenf = (event.target.value).length;
+  let contador = 500;
+  contador -= textLenf;
+  counter.innerText = `${contador}`;
 });
